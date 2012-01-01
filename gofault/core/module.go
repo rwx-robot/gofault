@@ -1,0 +1,75 @@
+// Package core defines the fundamental interfaces for the gofault framework.
+// All core interfaces are defined here to avoid circular dependencies.
+package core
+
+import (
+	"context"
+	"net/http"
+)
+
+// Context wraps the standard HTTP request context with framework-specific data.
+type Context = context.Context
+
+// Ctx encapsulates an HTTP request/response pair plus extracted route parameters.
+type Ctx struct {
+	Request    *http.Request
+	Response   http.ResponseWriter
+	Params     map[string]string
+	StatusCode int
+}
+
+func NewCtx(w http.ResponseWriter, r *http.Request) *Ctx {
+	return &Ctx{Request: r, Response: w, Params: make(map[string]string), StatusCode: http.StatusOK}
+}
+
+// Route describes a single route entry.
+type Route struct {
+	Method string
+	Path   string
+}
+
+// Provider is implemented by types that can be registered as injectable dependencies.
+type Provider interface {
+	Provide() any
+}
+
+// Controller is implemented by types that expose routes.
+type Controller interface {
+	Routes() []Route
+	Prefix() string
+}
+
+// Module is the basic unit of application organization.
+type Module struct {
+	Controllers []Controller
+	Providers   []Provider
+	Middleware  []MiddlewareFunc
+}
+
+func NewModule() *Module {
+	return &Module{Controllers: []Controller{}, Providers: []Provider{}, Middleware: []MiddlewareFunc{}}
+}
+
+// RegisterControllers appends controllers to the module.
+func (m *Module) RegisterControllers(ctrls ...Controller) *Module {
+	m.Controllers = append(m.Controllers, ctrls...)
+	return m
+}
+
+// RegisterProviders appends providers to the module.
+func (m *Module) RegisterProviders(providers ...Provider) *Module {
+	m.Providers = append(m.Providers, providers...)
+	return m
+}
+
+// RegisterMiddleware appends middleware to the module.
+func (m *Module) RegisterMiddleware(mw ...MiddlewareFunc) *Module {
+	m.Middleware = append(m.Middleware, mw...)
+	return m
+}
+
+// MiddlewareFunc is the function signature for HTTP middleware.
+type MiddlewareFunc func(ctx *Ctx, next Handler) error
+
+// Handler is the function signature for request handlers.
+type Handler func(ctx *Ctx) error

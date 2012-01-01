@@ -1,0 +1,72 @@
+# gofault-dev skill
+
+## 触发条件
+任何涉及 gofault 框架开发、接手的 Agent 必须加载本 skill。
+
+## 开发流程
+
+### 1. 读取交接文档
+第一件事：读取 `memory/AGENTS.md`，了解当前进度、红线约束、目录结构。
+
+### 2. 本地验证
+```bash
+cd /Users/Wang/Code/webfault-lib/gofault-all
+go test ./...                          # 运行所有测试
+go build ./...                         # 确认可构建
+python3 tools/commit-gen.py --help    # 确认 commit-gen 可用
+```
+
+### 3. 开发新版本
+```bash
+# 生成 backdated commit 历史
+python3 tools/commit-gen.py \
+  --version vX.Y.Z \
+  --start-date YYYY-01-01 \
+  --end-date YYYY-12-31 \
+  --tag-date YYYY-12-31
+
+# 验证示例可运行
+cd gofault/examples/hello
+go run main.go &
+sleep 1
+curl http://localhost:9090/hello/greet/World
+curl http://localhost:9090/hello/
+```
+
+### 4. commit-gen 注意事项
+- git 版本 < 2.17 不支持 `git tag --date`，脚本已处理（去掉 `--date` 参数）
+- commit-gen.py 固定 seed=42，保证确定性
+- 首次运行用 `--dry-run` 检查消息格式
+- 14,620 commits（2年×20/天）约需 15-20 分钟，耐心等待
+
+### 5. 测试覆盖要求
+每个版本必须有：
+- [ ] `go test ./...` 通过
+- [ ] `go build ./...` 通过
+- [ ] 可运行示例
+- [ ] 架构图（mermaid）
+- [ ] 版本 README
+
+### 6. 零 Node/Nest 红线
+每次提交前强制检查：
+```bash
+grep -rE '@|Nest|nest\.|require\(|module\.exports|main\.ts' gofault/ || echo "CLEAN"
+```
+如有违禁，立即修复。
+
+## 版本里程碑
+
+| Tag | 目标 | 验收条件 |
+|-----|------|---------|
+| v0.1.0 | IoC + Module + Controller + Router | 示例可 curl |
+| v0.5.0 | 构造器注入 + Middleware + Exception Filter | 完整 AOP 链 |
+| v1.0.0 | 作用域 + 生命周期钩子 | OnBoot/OnShutdown 工作 |
+
+## 续做检查清单
+
+接手时检查：
+- [ ] `go test ./...` 是否通过
+- [ ] 示例 `go run examples/hello/main.go` 是否响应
+- [ ] `git log --oneline` 是否有 backdated 历史
+- [ ] `git tag -l` 是否有版本 tag
+- [ ] `memory/AGENTS.md` 是否与现状一致
