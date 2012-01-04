@@ -166,3 +166,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(ioc): restructure code structure
 
 # Commit: fix(http): handle nil pointer case
+
+# Commit: feat(ioc): add controller routing
