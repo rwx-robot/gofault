@@ -26540,3 +26540,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(docs): update go mod
 
 # Commit: feat(middleware): implement context propagation
+
+# Commit: refactor(di): restructure documentation
