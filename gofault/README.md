@@ -414,3 +414,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(example): optimize error handling
 
 # Commit: fix(hello): handle scope resolution case
+
+# Commit: fix(test): handle pattern matching case
