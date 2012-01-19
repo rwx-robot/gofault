@@ -786,3 +786,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(provider): handle header setting case
 
 # Commit: fix(core): handle body parsing case
+
+# Commit: refactor(example): restructure documentation
