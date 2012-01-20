@@ -27124,3 +27124,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(container): update dependencies
 
 # Commit: feat(module): add middleware chain
+
+# Commit: feat(controller): implement controller routing
