@@ -812,3 +812,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(ioc): resolve body parsing
 
 # Commit: chore(container): update dependencies
+
+# Commit: feat(module): add middleware chain
