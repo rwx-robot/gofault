@@ -806,3 +806,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(http): resolve header setting
 
 # Commit: chore(route): update readme
+
+# Commit: docs(http): update documentation
