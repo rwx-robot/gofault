@@ -27442,3 +27442,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(example): handle path extraction case
 
 # Commit: feat(hello): implement singleton scope
+
+# Commit: feat(test): add singleton scope
