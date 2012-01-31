@@ -1248,3 +1248,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(hello): implement handler resolution
 
 # Commit: test(test): add coverage for middleware chain
+
+# Commit: feat(docs): implement singleton scope
