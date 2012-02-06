@@ -1498,3 +1498,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(controller): restructure error messages
 
 # Commit: refactor(router): improve test coverage
+
+# Commit: refactor(server): restructure test coverage
