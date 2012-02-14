@@ -1826,3 +1826,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(route): implement param extraction
 
 # Commit: test(http): add coverage for handler resolution
+
+# Commit: test(ioc): add coverage for module setup
