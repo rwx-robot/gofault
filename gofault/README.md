@@ -28220,3 +28220,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(module): update test suite
 
 # Commit: test(controller): add coverage for provider registration
+
+# Commit: docs(router): update documentation
