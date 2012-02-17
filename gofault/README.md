@@ -1950,3 +1950,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(controller): add route matching
 
 # Commit: refactor(router): improve documentation
+
+# Commit: docs(server): update documentation
