@@ -1998,3 +1998,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(example): add coverage for param extraction
 
 # Commit: perf(hello): optimize handler resolution
+
+# Commit: test(test): add coverage for controller routing
