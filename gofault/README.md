@@ -28292,3 +28292,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(ioc): resolve type inference
 
 # Commit: test(container): add coverage for request injection
+
+# Commit: fix(module): resolve path extraction
