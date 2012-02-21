@@ -28394,3 +28394,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(di): restructure type safety
 
 # Commit: perf(di-container): optimize param extraction
+
+# Commit: refactor(di): restructure error messages
