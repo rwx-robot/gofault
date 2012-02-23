@@ -28480,3 +28480,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(http): implement param extraction
 
 # Commit: fix(ioc): handle nil pointer case
+
+# Commit: feat(container): add singleton scope
