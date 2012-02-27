@@ -2342,3 +2342,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(hello): handle header setting case
 
 # Commit: perf(test): optimize param extraction
+
+# Commit: fix(docs): handle nil pointer case
