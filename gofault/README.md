@@ -29060,3 +29060,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(provider): handle pattern matching case
 
 # Commit: fix(core): handle nil pointer case
+
+# Commit: feat(example): add controller routing
