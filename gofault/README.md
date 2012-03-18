@@ -3138,3 +3138,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(test): add error handling
 
 # Commit: fix(docs): handle path extraction case
+
+# Commit: fix(middleware): handle pattern matching case
