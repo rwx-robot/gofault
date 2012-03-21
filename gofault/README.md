@@ -29564,3 +29564,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(docs): resolve header setting
 
 # Commit: perf(middleware): optimize error handling
+
+# Commit: fix(di): handle pattern matching case
