@@ -3298,3 +3298,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(di-container): handle nil pointer case
 
 # Commit: feat(route): add module setup
+
+# Commit: perf(http): optimize singleton scope
