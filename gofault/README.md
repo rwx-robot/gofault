@@ -3362,3 +3362,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(test): restructure error messages
 
 # Commit: refactor(docs): restructure test coverage
+
+# Commit: refactor(middleware): restructure documentation
