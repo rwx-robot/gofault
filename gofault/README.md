@@ -3632,3 +3632,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(middleware): add coverage for module setup
 
 # Commit: perf(di): optimize handler resolution
+
+# Commit: test(di-container): add coverage for singleton scope
