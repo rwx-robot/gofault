@@ -3624,3 +3624,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(example): optimize param extraction
 
 # Commit: test(hello): add coverage for error handling
+
+# Commit: fix(test): handle nil pointer case
