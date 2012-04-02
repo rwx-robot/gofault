@@ -3726,3 +3726,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(router): add context propagation
 
 # Commit: chore(controller): update ci configuration
+
+# Commit: fix(router): resolve path extraction
