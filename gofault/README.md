@@ -3724,3 +3724,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(controller): add singleton scope
 
 # Commit: feat(router): add context propagation
+
+# Commit: chore(controller): update ci configuration
