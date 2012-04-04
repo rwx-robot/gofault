@@ -30132,3 +30132,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(middleware): resolve header setting
 
 # Commit: perf(di): optimize handler resolution
+
+# Commit: test(di-container): add coverage for response writing
