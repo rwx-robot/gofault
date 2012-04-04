@@ -3810,3 +3810,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(provider): add singleton scope
 
 # Commit: feat(core): add module setup
+
+# Commit: perf(example): optimize module setup
