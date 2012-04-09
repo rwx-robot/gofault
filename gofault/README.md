@@ -4024,3 +4024,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(container): improve concurrency handling
 
 # Commit: fix(module): handle scope resolution case
+
+# Commit: refactor(controller): improve documentation
