@@ -30318,3 +30318,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(test): update readme
 
 # Commit: docs(docs): update documentation
+
+# Commit: docs(middleware): update documentation
