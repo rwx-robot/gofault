@@ -30390,3 +30390,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(test): resolve routing conflict
 
 # Commit: fix(docs): handle path extraction case
+
+# Commit: feat(middleware): implement module setup
