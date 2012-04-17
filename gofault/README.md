@@ -4324,3 +4324,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(container): optimize singleton scope
 
 # Commit: feat(module): add error handling
+
+# Commit: chore(container): update gitignore
