@@ -30878,3 +30878,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(core): update license
 
 # Commit: perf(example): optimize provider registration
+
+# Commit: docs(hello): update documentation
