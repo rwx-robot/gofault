@@ -31090,3 +31090,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(container): implement param extraction
 
 # Commit: refactor(module): restructure type safety
+
+# Commit: refactor(controller): restructure error messages
