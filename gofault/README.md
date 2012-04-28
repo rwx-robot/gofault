@@ -31110,3 +31110,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(docs): add coverage for middleware chain
 
 # Commit: feat(middleware): implement controller routing
+
+# Commit: chore(di): update readme
