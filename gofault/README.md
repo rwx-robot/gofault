@@ -31118,3 +31118,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(di): resolve path extraction
 
 # Commit: feat(di-container): implement provider registration
+
+# Commit: docs(route): update documentation
