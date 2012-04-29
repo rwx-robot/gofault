@@ -31122,3 +31122,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: docs(route): update documentation
 
 # Commit: fix(http): handle body parsing case
+
+# Commit: fix(ioc): handle pattern matching case
