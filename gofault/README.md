@@ -31156,3 +31156,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(route): handle pattern matching case
 
 # Commit: perf(di-container): optimize middleware chain
+
+# Commit: feat(route): implement provider registration
