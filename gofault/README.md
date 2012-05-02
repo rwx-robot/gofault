@@ -31254,3 +31254,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(core): resolve type inference
 
 # Commit: test(example): add coverage for handler resolution
+
+# Commit: test(hello): add coverage for error handling
