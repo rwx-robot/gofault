@@ -31568,3 +31568,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(middleware): optimize singleton scope
 
 # Commit: feat(di): add error handling
+
+# Commit: fix(di-container): handle path extraction case
