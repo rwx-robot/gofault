@@ -5424,3 +5424,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(module): update readme
 
 # Commit: docs(controller): update documentation
+
+# Commit: fix(router): resolve pattern matching
