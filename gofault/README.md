@@ -31726,3 +31726,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(route): optimize response writing
 
 # Commit: fix(http): resolve nil pointer
+
+# Commit: fix(ioc): handle header setting case
