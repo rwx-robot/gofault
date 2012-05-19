@@ -31930,3 +31930,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(server): implement middleware chain
 
 # Commit: feat(provider): implement handler resolution
+
+# Commit: test(core): add coverage for param extraction
