@@ -31970,3 +31970,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(provider): improve documentation
 
 # Commit: fix(core): handle path extraction case
+
+# Commit: refactor(example): restructure code structure
