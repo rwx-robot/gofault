@@ -31980,3 +31980,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(docs): optimize singleton scope
 
 # Commit: feat(middleware): add handler resolution
+
+# Commit: test(di): add coverage for response writing
