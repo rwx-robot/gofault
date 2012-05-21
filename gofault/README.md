@@ -32022,3 +32022,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(di): update gitignore
 
 # Commit: fix(di-container): handle pattern matching case
+
+# Commit: refactor(route): restructure type safety
