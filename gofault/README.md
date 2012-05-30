@@ -32380,3 +32380,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(router): add coverage for singleton scope
 
 # Commit: feat(server): add route matching
+
+# Commit: refactor(provider): improve test coverage
