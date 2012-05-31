@@ -32420,3 +32420,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(server): add provider registration
 
 # Commit: docs(provider): update documentation
+
+# Commit: feat(core): add controller routing
