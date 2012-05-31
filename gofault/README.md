@@ -6116,3 +6116,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(example): update build script
 
 # Commit: fix(hello): handle scope resolution case
+
+# Commit: fix(test): handle nil pointer case
