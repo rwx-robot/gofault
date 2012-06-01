@@ -32440,3 +32440,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(di): add param extraction
 
 # Commit: refactor(di-container): improve performance
+
+# Commit: feat(route): add request injection
