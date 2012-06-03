@@ -32552,3 +32552,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(di-container): resolve body parsing
 
 # Commit: refactor(route): restructure performance
+
+# Commit: feat(http): add route matching
