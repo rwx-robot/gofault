@@ -32568,3 +32568,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(controller): handle nil pointer case
 
 # Commit: fix(router): handle body parsing case
+
+# Commit: chore(server): update gitignore
