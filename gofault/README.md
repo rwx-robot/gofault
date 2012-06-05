@@ -6298,3 +6298,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(router): add coverage for handler resolution
 
 # Commit: test(server): add coverage for error handling
+
+# Commit: fix(provider): handle routing conflict case
