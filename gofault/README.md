@@ -32622,3 +32622,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(docs): implement response writing
 
 # Commit: chore(middleware): update dependencies
+
+# Commit: feat(di): add handler resolution
