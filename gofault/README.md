@@ -32688,3 +32688,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(provider): resolve header setting
 
 # Commit: perf(core): optimize middleware chain
+
+# Commit: feat(example): implement param extraction
