@@ -32794,3 +32794,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(router): optimize context propagation
 
 # Commit: refactor(server): restructure type safety
+
+# Commit: fix(router): handle header setting case
