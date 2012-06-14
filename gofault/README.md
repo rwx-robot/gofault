@@ -32974,3 +32974,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(http): update gitignore
 
 # Commit: refactor(ioc): restructure test coverage
+
+# Commit: test(container): add coverage for singleton scope
