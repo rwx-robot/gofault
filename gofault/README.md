@@ -6784,3 +6784,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(module): add handler resolution
 
 # Commit: test(controller): add coverage for response writing
+
+# Commit: feat(router): add controller routing
