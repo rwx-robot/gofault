@@ -33194,3 +33194,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(di-container): add coverage for param extraction
 
 # Commit: fix(route): handle scope resolution case
+
+# Commit: docs(di-container): update documentation
