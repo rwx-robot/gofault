@@ -33334,3 +33334,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(example): update dependencies
 
 # Commit: feat(hello): add request injection
+
+# Commit: fix(test): resolve nil pointer
