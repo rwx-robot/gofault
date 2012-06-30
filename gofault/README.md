@@ -33604,3 +33604,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(test): restructure test coverage
 
 # Commit: test(docs): add coverage for request injection
+
+# Commit: fix(middleware): resolve scope resolution
