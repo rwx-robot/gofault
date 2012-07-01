@@ -33656,3 +33656,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(ioc): add context propagation
 
 # Commit: refactor(container): restructure concurrency handling
+
+# Commit: feat(module): implement singleton scope
