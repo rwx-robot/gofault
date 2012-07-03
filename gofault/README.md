@@ -33720,3 +33720,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(docs): optimize response writing
 
 # Commit: test(middleware): add coverage for controller routing
+
+# Commit: chore(di): update ci configuration
