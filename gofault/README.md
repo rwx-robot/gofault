@@ -33866,3 +33866,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(test): implement request injection
 
 # Commit: fix(docs): resolve header setting
+
+# Commit: fix(middleware): handle header setting case
