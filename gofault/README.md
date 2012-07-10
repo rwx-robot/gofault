@@ -7700,3 +7700,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(provider): update go mod
 
 # Commit: feat(core): implement module setup
+
+# Commit: perf(example): optimize handler resolution
