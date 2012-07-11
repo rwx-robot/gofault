@@ -34064,3 +34064,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(di-container): add middleware chain
 
 # Commit: feat(route): implement param extraction
+
+# Commit: feat(http): add singleton scope
