@@ -34150,3 +34150,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(module): improve type safety
 
 # Commit: perf(controller): optimize handler resolution
+
+# Commit: test(router): add coverage for error handling
