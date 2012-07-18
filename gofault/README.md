@@ -8004,3 +8004,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(example): update license
 
 # Commit: perf(hello): optimize request injection
+
+# Commit: refactor(example): restructure type safety
