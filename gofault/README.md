@@ -34358,3 +34358,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(hello): add coverage for param extraction
 
 # Commit: fix(test): resolve pattern matching
+
+# Commit: fix(docs): handle body parsing case
