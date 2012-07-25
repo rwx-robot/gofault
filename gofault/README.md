@@ -34598,3 +34598,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(route): implement error handling
 
 # Commit: fix(http): handle pattern matching case
+
+# Commit: refactor(ioc): restructure test coverage
