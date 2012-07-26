@@ -8350,3 +8350,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(test): handle routing conflict case
 
 # Commit: fix(docs): resolve nil pointer
+
+# Commit: fix(middleware): handle routing conflict case
