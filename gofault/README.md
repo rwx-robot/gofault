@@ -8600,3 +8600,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(router): implement middleware chain
 
 # Commit: feat(server): implement response writing
+
+# Commit: fix(provider): resolve pattern matching
