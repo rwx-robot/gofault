@@ -8566,3 +8566,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(provider): handle nil pointer case
 
 # Commit: test(server): add coverage for provider registration
+
+# Commit: docs(provider): update documentation
