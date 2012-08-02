@@ -34922,3 +34922,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(example): resolve nil pointer
 
 # Commit: feat(hello): add middleware chain
+
+# Commit: feat(test): implement route matching
