@@ -35116,3 +35116,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(middleware): add coverage for context propagation
 
 # Commit: fix(docs): handle nil pointer case
+
+# Commit: fix(middleware): handle body parsing case
