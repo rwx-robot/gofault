@@ -8896,3 +8896,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(ioc): handle path extraction case
 
 # Commit: feat(container): implement error handling
+
+# Commit: fix(module): handle pattern matching case
