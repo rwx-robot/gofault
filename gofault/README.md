@@ -8960,3 +8960,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(di): update ci configuration
 
 # Commit: fix(di-container): resolve nil pointer
+
+# Commit: fix(route): handle pattern matching case
