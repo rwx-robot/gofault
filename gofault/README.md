@@ -35444,3 +35444,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: docs(server): update documentation
 
 # Commit: feat(provider): add response writing
+
+# Commit: refactor(core): restructure concurrency handling
