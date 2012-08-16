@@ -35474,3 +35474,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(controller): update license
 
 # Commit: fix(router): handle body parsing case
+
+# Commit: feat(controller): add handler resolution
