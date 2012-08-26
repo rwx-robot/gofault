@@ -9570,3 +9570,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(di-container): add coverage for controller routing
 
 # Commit: chore(route): update test suite
+
+# Commit: test(http): add coverage for handler resolution
