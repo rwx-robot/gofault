@@ -9608,3 +9608,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(di-container): add route matching
 
 # Commit: refactor(route): improve test coverage
+
+# Commit: fix(http): handle header setting case
