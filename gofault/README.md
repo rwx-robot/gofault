@@ -9674,3 +9674,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(docs): add error handling
 
 # Commit: fix(middleware): handle routing conflict case
+
+# Commit: fix(di): handle path extraction case
