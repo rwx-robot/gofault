@@ -10194,3 +10194,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(core): resolve body parsing
 
 # Commit: chore(example): update go mod
+
+# Commit: feat(hello): implement provider registration
