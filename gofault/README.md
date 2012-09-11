@@ -36518,3 +36518,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(middleware): add coverage for response writing
 
 # Commit: test(di): add coverage for error handling
+
+# Commit: fix(di-container): handle nil pointer case
