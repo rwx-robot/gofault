@@ -36566,3 +36566,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(ioc): resolve nil pointer
 
 # Commit: fix(container): handle nil pointer case
+
+# Commit: fix(module): handle header setting case
