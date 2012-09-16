@@ -36716,3 +36716,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(container): handle pattern matching case
 
 # Commit: refactor(ioc): improve documentation
+
+# Commit: refactor(container): restructure memory usage
