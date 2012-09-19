@@ -10560,3 +10560,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(module): restructure code structure
 
 # Commit: fix(controller): resolve pattern matching
+
+# Commit: refactor(router): restructure concurrency handling
