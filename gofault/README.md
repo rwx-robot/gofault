@@ -36916,3 +36916,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(provider): add coverage for provider registration
 
 # Commit: feat(server): implement request injection
+
+# Commit: fix(provider): resolve routing conflict
