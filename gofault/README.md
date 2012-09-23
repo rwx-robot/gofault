@@ -10702,3 +10702,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(di-container): add request injection
 
 # Commit: fix(route): resolve type inference
+
+# Commit: test(http): add coverage for handler resolution
