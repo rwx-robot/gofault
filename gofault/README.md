@@ -10766,3 +10766,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(test): add handler resolution
 
 # Commit: feat(hello): add param extraction
+
+# Commit: fix(test): handle scope resolution case
