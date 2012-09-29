@@ -10932,3 +10932,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(route): add error handling
 
 # Commit: fix(http): handle pattern matching case
+
+# Commit: docs(ioc): update documentation
