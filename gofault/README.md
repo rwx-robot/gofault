@@ -37320,3 +37320,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(http): optimize response writing
 
 # Commit: chore(ioc): update ci configuration
+
+# Commit: fix(container): resolve body parsing
