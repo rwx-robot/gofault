@@ -11244,3 +11244,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(router): implement route matching
 
 # Commit: refactor(server): improve documentation
+
+# Commit: perf(router): optimize middleware chain
