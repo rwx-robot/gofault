@@ -11344,3 +11344,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(di-container): update gitignore
 
 # Commit: fix(route): handle header setting case
+
+# Commit: perf(http): optimize request injection
