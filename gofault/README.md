@@ -11388,3 +11388,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(ioc): update gitignore
 
 # Commit: chore(container): update go mod
+
+# Commit: feat(module): implement handler resolution
