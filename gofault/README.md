@@ -37802,3 +37802,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(middleware): add coverage for provider registration
 
 # Commit: docs(di): update documentation
+
+# Commit: fix(di-container): resolve routing conflict
