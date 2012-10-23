@@ -11912,3 +11912,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(route): optimize response writing
 
 # Commit: docs(http): update documentation
+
+# Commit: refactor(ioc): restructure type safety
