@@ -11988,3 +11988,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(route): add route matching
 
 # Commit: refactor(http): improve type safety
+
+# Commit: perf(ioc): optimize request injection
