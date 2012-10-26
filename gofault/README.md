@@ -12012,3 +12012,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(example): handle pattern matching case
 
 # Commit: docs(hello): update documentation
+
+# Commit: feat(test): add handler resolution
