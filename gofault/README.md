@@ -12120,3 +12120,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(core): implement response writing
 
 # Commit: feat(example): add middleware chain
+
+# Commit: feat(hello): implement response writing
