@@ -12270,3 +12270,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: docs(provider): update documentation
 
 # Commit: refactor(core): restructure performance
+
+# Commit: feat(example): add module setup
