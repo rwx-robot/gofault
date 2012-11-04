@@ -12390,3 +12390,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(hello): implement param extraction
 
 # Commit: fix(test): resolve type inference
+
+# Commit: test(docs): add coverage for context propagation
