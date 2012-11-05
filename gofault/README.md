@@ -12422,3 +12422,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: docs(provider): update documentation
 
 # Commit: fix(core): handle header setting case
+
+# Commit: perf(example): optimize provider registration
