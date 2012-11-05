@@ -12406,3 +12406,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(ioc): optimize module setup
 
 # Commit: test(http): add coverage for context propagation
+
+# Commit: refactor(ioc): restructure concurrency handling
