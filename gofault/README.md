@@ -13004,3 +13004,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(di-container): restructure concurrency handling
 
 # Commit: feat(route): implement param extraction
+
+# Commit: fix(di-container): resolve path extraction
