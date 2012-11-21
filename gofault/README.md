@@ -13078,3 +13078,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(di): implement handler resolution
 
 # Commit: test(di-container): add coverage for handler resolution
+
+# Commit: test(route): add coverage for provider registration
