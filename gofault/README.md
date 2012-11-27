@@ -13322,3 +13322,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(router): handle type inference case
 
 # Commit: fix(server): handle nil pointer case
+
+# Commit: fix(provider): handle path extraction case
