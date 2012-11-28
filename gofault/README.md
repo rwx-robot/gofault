@@ -13328,3 +13328,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(server): resolve type inference
 
 # Commit: test(provider): add coverage for param extraction
+
+# Commit: refactor(core): improve concurrency handling
