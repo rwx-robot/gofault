@@ -14024,3 +14024,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(di): handle nil pointer case
 
 # Commit: feat(di-container): add handler resolution
+
+# Commit: test(route): add coverage for controller routing
