@@ -14028,3 +14028,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(route): add coverage for controller routing
 
 # Commit: chore(http): update test suite
+
+# Commit: fix(ioc): handle routing conflict case
