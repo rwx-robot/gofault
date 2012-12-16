@@ -14056,3 +14056,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(test): add singleton scope
 
 # Commit: feat(docs): add context propagation
+
+# Commit: refactor(middleware): restructure code structure
