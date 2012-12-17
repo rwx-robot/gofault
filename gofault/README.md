@@ -14120,3 +14120,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(provider): optimize param extraction
 
 # Commit: fix(core): resolve type inference
+
+# Commit: test(example): add coverage for controller routing
