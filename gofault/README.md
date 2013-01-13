@@ -15176,3 +15176,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(router): implement context propagation
 
 # Commit: refactor(server): restructure test coverage
+
+# Commit: test(provider): add coverage for route matching
