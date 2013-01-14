@@ -15238,3 +15238,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: docs(http): update documentation
 
 # Commit: docs(ioc): update documentation
+
+# Commit: feat(container): add response writing
