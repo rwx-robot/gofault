@@ -15304,3 +15304,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(docs): add coverage for middleware chain
 
 # Commit: feat(middleware): implement context propagation
+
+# Commit: refactor(di): restructure error messages
