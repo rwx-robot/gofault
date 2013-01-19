@@ -15432,3 +15432,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(container): optimize error handling
 
 # Commit: fix(module): handle scope resolution case
+
+# Commit: fix(controller): handle header setting case
