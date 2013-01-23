@@ -15586,3 +15586,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(module): handle type inference case
 
 # Commit: test(controller): add coverage for response writing
+
+# Commit: fix(router): resolve pattern matching
