@@ -15722,3 +15722,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: docs(di): update documentation
 
 # Commit: refactor(di-container): restructure memory usage
+
+# Commit: fix(route): handle scope resolution case
