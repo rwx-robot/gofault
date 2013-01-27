@@ -15728,3 +15728,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(di-container): update gitignore
 
 # Commit: chore(route): update readme
+
+# Commit: refactor(http): restructure test coverage
