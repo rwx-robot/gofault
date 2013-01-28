@@ -15802,3 +15802,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: perf(route): optimize handler resolution
 
 # Commit: test(http): add coverage for error handling
+
+# Commit: fix(ioc): handle nil pointer case
