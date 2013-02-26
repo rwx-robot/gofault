@@ -16926,3 +16926,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(docs): add error handling
 
 # Commit: chore(test): update readme
+
+# Commit: fix(docs): handle type inference case
