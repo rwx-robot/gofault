@@ -17170,3 +17170,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(ioc): resolve pattern matching
 
 # Commit: docs(container): update documentation
+
+# Commit: fix(module): resolve pattern matching
