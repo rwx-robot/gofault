@@ -17724,3 +17724,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(di): improve concurrency handling
 
 # Commit: feat(di-container): implement module setup
+
+# Commit: test(di): add coverage for context propagation
