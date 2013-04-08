@@ -18564,3 +18564,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(ioc): add coverage for handler resolution
 
 # Commit: test(container): add coverage for singleton scope
+
+# Commit: fix(ioc): handle scope resolution case
