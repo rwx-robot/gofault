@@ -18698,3 +18698,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(example): update gitignore
 
 # Commit: chore(hello): update go mod
+
+# Commit: fix(test): handle type inference case
