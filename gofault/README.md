@@ -18970,3 +18970,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(docs): resolve nil pointer
 
 # Commit: refactor(middleware): restructure concurrency handling
+
+# Commit: feat(di): implement singleton scope
