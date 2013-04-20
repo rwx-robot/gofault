@@ -19070,3 +19070,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(provider): update gitignore
 
 # Commit: chore(core): update build script
+
+# Commit: refactor(example): restructure type safety
