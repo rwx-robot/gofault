@@ -19086,3 +19086,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: docs(di-container): update documentation
 
 # Commit: fix(di): handle path extraction case
+
+# Commit: feat(di-container): implement route matching
