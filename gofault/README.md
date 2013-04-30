@@ -19454,3 +19454,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(example): add coverage for singleton scope
 
 # Commit: feat(hello): add param extraction
+
+# Commit: feat(test): implement route matching
