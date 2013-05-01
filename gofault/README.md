@@ -19504,3 +19504,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(di-container): handle nil pointer case
 
 # Commit: feat(route): add provider registration
+
+# Commit: docs(http): update documentation
