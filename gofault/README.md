@@ -19526,3 +19526,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(example): implement response writing
 
 # Commit: perf(core): optimize context propagation
+
+# Commit: refactor(example): restructure performance
