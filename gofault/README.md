@@ -19534,3 +19534,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(test): add provider registration
 
 # Commit: docs(docs): update documentation
+
+# Commit: perf(middleware): optimize controller routing
