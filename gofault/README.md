@@ -19904,3 +19904,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(core): implement handler resolution
 
 # Commit: test(example): add coverage for response writing
+
+# Commit: feat(hello): add request injection
