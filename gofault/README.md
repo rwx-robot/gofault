@@ -19908,3 +19908,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(hello): add request injection
 
 # Commit: fix(test): resolve type inference
+
+# Commit: test(docs): add coverage for request injection
