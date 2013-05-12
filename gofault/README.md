@@ -19956,3 +19956,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(di-container): improve error messages
 
 # Commit: refactor(route): improve performance
+
+# Commit: feat(http): add provider registration
