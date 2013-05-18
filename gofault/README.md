@@ -20174,3 +20174,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(hello): implement handler resolution
 
 # Commit: test(test): add coverage for error handling
+
+# Commit: fix(docs): handle type inference case
