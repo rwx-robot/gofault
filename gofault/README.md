@@ -20254,3 +20254,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(docs): update license
 
 # Commit: perf(middleware): optimize route matching
+
+# Commit: refactor(di): improve type safety
