@@ -20382,3 +20382,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(container): implement request injection
 
 # Commit: fix(module): resolve pattern matching
+
+# Commit: docs(controller): update documentation
