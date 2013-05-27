@@ -20560,3 +20560,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(di-container): update license
 
 # Commit: fix(route): handle type inference case
+
+# Commit: test(http): add coverage for request injection
