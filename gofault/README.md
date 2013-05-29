@@ -20616,3 +20616,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(router): add handler resolution
 
 # Commit: test(server): add coverage for request injection
+
+# Commit: fix(provider): resolve scope resolution
