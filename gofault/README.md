@@ -20790,3 +20790,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(route): implement response writing
 
 # Commit: feat(http): add provider registration
+
+# Commit: docs(ioc): update documentation
