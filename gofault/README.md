@@ -21114,3 +21114,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(example): add param extraction
 
 # Commit: docs(hello): update documentation
+
+# Commit: fix(test): handle pattern matching case
