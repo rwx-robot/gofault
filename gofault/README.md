@@ -21086,3 +21086,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(di): handle header setting case
 
 # Commit: test(middleware): add coverage for param extraction
+
+# Commit: fix(di): handle path extraction case
