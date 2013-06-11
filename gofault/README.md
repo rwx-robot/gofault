@@ -21158,3 +21158,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(docs): update go mod
 
 # Commit: feat(middleware): implement handler resolution
+
+# Commit: test(di): add coverage for singleton scope
