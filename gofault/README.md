@@ -21322,3 +21322,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(ioc): add coverage for singleton scope
 
 # Commit: feat(container): add param extraction
+
+# Commit: fix(module): handle pattern matching case
