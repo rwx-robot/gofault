@@ -21778,3 +21778,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(ioc): handle scope resolution case
 
 # Commit: refactor(container): improve code structure
+
+# Commit: fix(module): handle body parsing case
