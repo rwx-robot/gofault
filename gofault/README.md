@@ -22336,3 +22336,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(di): add provider registration
 
 # Commit: docs(di-container): update documentation
+
+# Commit: fix(route): resolve body parsing
