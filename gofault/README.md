@@ -22876,3 +22876,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: fix(module): handle routing conflict case
 
 # Commit: fix(controller): handle path extraction case
+
+# Commit: feat(router): implement controller routing
