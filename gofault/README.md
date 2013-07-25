@@ -22908,3 +22908,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(http): implement response writing
 
 # Commit: perf(ioc): optimize singleton scope
+
+# Commit: feat(container): add handler resolution
