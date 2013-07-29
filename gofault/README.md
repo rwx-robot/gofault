@@ -23062,3 +23062,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(ioc): update ci configuration
 
 # Commit: refactor(container): restructure test coverage
+
+# Commit: test(module): add coverage for singleton scope
