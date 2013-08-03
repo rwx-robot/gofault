@@ -23280,3 +23280,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(di-container): implement param extraction
 
 # Commit: chore(route): update gitignore
+
+# Commit: chore(http): update test suite
