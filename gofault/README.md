@@ -23326,3 +23326,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: refactor(container): improve test coverage
 
 # Commit: refactor(ioc): improve concurrency handling
+
+# Commit: feat(container): implement provider registration
