@@ -23838,3 +23838,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(test): update ci configuration
 
 # Commit: fix(docs): handle nil pointer case
+
+# Commit: feat(middleware): add context propagation
