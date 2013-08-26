@@ -24180,3 +24180,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: chore(test): update dependencies
 
 # Commit: fix(docs): handle header setting case
+
+# Commit: perf(middleware): optimize middleware chain
