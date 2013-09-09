@@ -24736,3 +24736,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(server): add coverage for provider registration
 
 # Commit: docs(provider): update documentation
+
+# Commit: refactor(core): improve error messages
