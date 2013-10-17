@@ -26272,3 +26272,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: test(ioc): add coverage for middleware chain
 
 # Commit: feat(container): implement provider registration
+
+# Commit: docs(module): update documentation
