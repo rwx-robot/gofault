@@ -26326,3 +26326,5 @@ A Go backend framework inspired by NestJS architecture, implemented in pure Go i
 # Commit: feat(example): add module setup
 
 # Commit: feat(core): add response writing
+
+# Commit: chore(example): update readme
