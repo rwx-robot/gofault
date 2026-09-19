@@ -3,7 +3,9 @@ package controller
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
+	"reflect"
 
 	"github.com/gofault/gofault/core"
 )
@@ -36,11 +38,14 @@ func Query(ctx *core.Ctx, name string) string {
 }
 
 // InvokeHandler dispatches to the appropriate controller method based on HTTP method and path.
-// This is a simple reflection-based dispatcher.
-func InvokeHandler(ctrl core.Controller, method, path string, ctx *core.Ctx) error {
-	// Use functional dispatch based on registered routes.
-	// The controller registers its methods via Routes(), so we match here.
-	return nil // routed via closure in module.Bootstrap
+func InvokeHandler(ctrl core.Controller, method, path, handlerName string, ctx *core.Ctx) error {
+	v := reflect.ValueOf(ctrl)
+	methodVal := v.MethodByName(handlerName)
+	if !methodVal.IsValid() {
+		return fmt.Errorf("handler method %q not found on controller", handlerName)
+	}
+	fn := methodVal.Interface().(func(ctx *core.Ctx) error)
+	return fn(ctx)
 }
 
 // ControllerMethod is the signature for controller action methods.

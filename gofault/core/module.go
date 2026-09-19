@@ -24,8 +24,9 @@ func NewCtx(w http.ResponseWriter, r *http.Request) *Ctx {
 
 // Route describes a single route entry.
 type Route struct {
-	Method string
-	Path   string
+	Method  string
+	Path    string
+	Handler string // name of the controller method to call (e.g. "Greet", "Index")
 }
 
 // Provider is implemented by types that can be registered as injectable dependencies.
@@ -39,15 +40,35 @@ type Controller interface {
 	Prefix() string
 }
 
+// OnBoot is implemented by types that need to perform setup when the application starts.
+// Called after all modules are registered and routes are wired, but before the server starts.
+type OnBoot interface {
+	OnBoot() error
+}
+
+// OnShutdown is implemented by types that need to perform cleanup when the application stops.
+// Called during graceful shutdown.
+type OnShutdown interface {
+	OnShutdown() error
+}
+
 // Module is the basic unit of application organization.
 type Module struct {
 	Controllers []Controller
 	Providers   []Provider
 	Middleware  []MiddlewareFunc
+	OnBootHooks []OnBoot
+	OnShutdownHooks []OnShutdown
 }
 
 func NewModule() *Module {
-	return &Module{Controllers: []Controller{}, Providers: []Provider{}, Middleware: []MiddlewareFunc{}}
+	return &Module{
+		Controllers:    []Controller{},
+		Providers:      []Provider{},
+		Middleware:     []MiddlewareFunc{},
+		OnBootHooks:    []OnBoot{},
+		OnShutdownHooks: []OnShutdown{},
+	}
 }
 
 // RegisterControllers appends controllers to the module.
@@ -65,6 +86,18 @@ func (m *Module) RegisterProviders(providers ...Provider) *Module {
 // RegisterMiddleware appends middleware to the module.
 func (m *Module) RegisterMiddleware(mw ...MiddlewareFunc) *Module {
 	m.Middleware = append(m.Middleware, mw...)
+	return m
+}
+
+// RegisterOnBoot appends OnBoot hooks to the module.
+func (m *Module) RegisterOnBoot(hooks ...OnBoot) *Module {
+	m.OnBootHooks = append(m.OnBootHooks, hooks...)
+	return m
+}
+
+// RegisterOnShutdown appends OnShutdown hooks to the module.
+func (m *Module) RegisterOnShutdown(hooks ...OnShutdown) *Module {
+	m.OnShutdownHooks = append(m.OnShutdownHooks, hooks...)
 	return m
 }
 

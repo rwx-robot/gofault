@@ -7,20 +7,22 @@ import (
 	"strings"
 
 	"github.com/gofault/gofault/core"
+	"github.com/gofault/gofault/exception"
 )
 
 // Router matches incoming requests against registered routes and executes the middleware chain.
 type Router struct {
-	middleware []core.MiddlewareFunc
-	routes     []routeEntry
+	middleware      []core.MiddlewareFunc
+	routes          []routeEntry
+	exceptionFilter exception.ExceptionFilter
 }
 
 type routeEntry struct {
-	method      string
-	pattern     *regexp.Regexp
-	paramNames  []string
-	handler     core.Handler
-	middleware  []core.MiddlewareFunc
+	method     string
+	pattern    *regexp.Regexp
+	paramNames []string
+	handler    core.Handler
+	middleware []core.MiddlewareFunc
 }
 
 var _ RouterInterface = (*Router)(nil)
@@ -29,6 +31,7 @@ var _ RouterInterface = (*Router)(nil)
 type RouterInterface interface {
 	Handle(method, path string, handler core.Handler, mw ...core.MiddlewareFunc)
 	Middleware(mw ...core.MiddlewareFunc)
+	ExceptionFilter(f exception.ExceptionFilter)
 	ServeHTTP(w http.ResponseWriter, r *http.Request)
 }
 
@@ -40,6 +43,11 @@ func New() *Router {
 // Middleware appends global middleware to the router.
 func (r *Router) Middleware(mw ...core.MiddlewareFunc) {
 	r.middleware = append(r.middleware, mw...)
+}
+
+// ExceptionFilter sets the exception filter for the router.
+func (r *Router) ExceptionFilter(f exception.ExceptionFilter) {
+	r.exceptionFilter = f
 }
 
 // Handle registers a route with the given method, path pattern, handler, and optional middleware.
@@ -95,13 +103,16 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		}
 
 		chain := append(r.middleware, route.middleware...)
-		// Wrap the final handler as a MiddlewareFunc so it fits the chain signature.
 		chain = append(chain, core.MiddlewareFunc(func(ctx *core.Ctx, next core.Handler) error {
 			return route.handler(ctx)
 		}))
 		err := runChain(ctx, chain, 0)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+			if r.exceptionFilter != nil {
+				r.exceptionFilter.Capture(ctx, err)
+			} else {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+			}
 		}
 		return
 	}

@@ -6,9 +6,9 @@ import (
 
 	"github.com/gofault/gofault/controller"
 	"github.com/gofault/gofault/core"
-	"github.com/gofault/gofault/provider"
+	"github.com/gofault/gofault/exception"
+	"github.com/gofault/gofault/module"
 	"github.com/gofault/gofault/router"
-	"github.com/gofault/gofault/server"
 )
 
 // GreetingService is a simple injectable provider.
@@ -26,6 +26,25 @@ func (s *GreetingService) Greet(name string) string {
 	return s.prefix + ", " + name + "!"
 }
 
+// LifecycleHook demonstrates OnBoot/OnShutdown lifecycle.
+type LifecycleHook struct {
+	name string
+}
+
+func NewLifecycleHook(name string) *LifecycleHook {
+	return &LifecycleHook{name: name}
+}
+
+func (h *LifecycleHook) OnBoot() error {
+	log.Printf("[Lifecycle] OnBoot: %s started", h.name)
+	return nil
+}
+
+func (h *LifecycleHook) OnShutdown() error {
+	log.Printf("[Lifecycle] OnShutdown: %s stopped", h.name)
+	return nil
+}
+
 // GreetingController is the HTTP entry point for greeting endpoints.
 type GreetingController struct {
 	controller.BaseController
@@ -40,8 +59,9 @@ func (c *GreetingController) Prefix() string { return "/hello" }
 
 func (c *GreetingController) Routes() []core.Route {
 	return []core.Route{
-		{Method: "GET", Path: "/greet/:name"},
-		{Method: "GET", Path: "/"},
+		{Method: "GET", Path: "/greet/:name", Handler: "Greet"},
+		{Method: "GET", Path: "/", Handler: "Index"},
+		{Method: "GET", Path: "/error", Handler: "Error"},
 	}
 }
 
@@ -55,28 +75,42 @@ func (c *GreetingController) Index(ctx *core.Ctx) error {
 	return controller.OK(ctx.Response, map[string]string{"message": "gofault is running"})
 }
 
+func (c *GreetingController) Error(ctx *core.Ctx) error {
+	return exception.BadRequest("this is a test error")
+}
+
+// loggingMiddleware demonstrates a custom middleware.
+func loggingMiddleware(ctx *core.Ctx, next core.Handler) error {
+	log.Printf("[Middleware] %s %s", ctx.Request.Method, ctx.Request.URL.Path)
+	return next(ctx)
+}
+
 func main() {
 	// Create service and controller
 	svc := NewGreetingService("Hello")
 	ctrl := NewGreetingController(svc)
-	_ = provider.ValueProvider{Value: svc}
+	hook := NewLifecycleHook("gofault-hello")
 
-	// Create router
+	// Create module with controller, provider, middleware, and lifecycle hooks
+	mod := core.NewModule()
+	mod.RegisterControllers(ctrl)
+	mod.RegisterProviders(svc)
+	mod.RegisterOnBoot(hook)
+	mod.RegisterOnShutdown(hook)
+	mod.RegisterMiddleware(loggingMiddleware)
+
+	// Create application
+	app := module.New()
+	app.RegisterModules(mod)
+
+	// Create and configure router with exception filter
 	rtr := router.New()
+	rtr.Middleware(loggingMiddleware)
+	rtr.ExceptionFilter(exception.NewHTTPExceptionFilter())
+	app.SetRouter(rtr)
 
-	// Register all routes from the controller
-	for _, route := range ctrl.Routes() {
-		fullPath := ctrl.Prefix() + route.Path
-		switch route.Path {
-		case "/greet/:name":
-			rtr.Handle(route.Method, fullPath, ctrl.Greet)
-		case "/":
-			rtr.Handle(route.Method, fullPath, ctrl.Index)
-		}
-	}
-
-	// Create and start server
-	httpServer := server.New(rtr, 9090)
+	// Bootstrap and run
+	app.Bootstrap()
 	log.Println("gofault hello example running on :9090")
-	log.Fatal(httpServer.Start())
+	log.Fatal(app.Start(9090))
 }

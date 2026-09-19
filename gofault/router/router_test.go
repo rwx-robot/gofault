@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/gofault/gofault/core"
+	"github.com/gofault/gofault/exception"
 )
 
 func dummyHandler(ctx *core.Ctx) error {
@@ -53,5 +54,24 @@ func TestRouter_MiddlewareChain(t *testing.T) {
 
 	if !called {
 		t.Fatal("middleware was not called")
+	}
+}
+
+func TestRouter_ExceptionFilter(t *testing.T) {
+	r := New()
+
+	errHandler := func(ctx *core.Ctx) error {
+		return exception.BadRequest("invalid input")
+	}
+
+	r.Handle("GET", "/error", errHandler)
+	r.ExceptionFilter(exception.NewHTTPExceptionFilter())
+
+	req := httptest.NewRequest("GET", "/error", nil)
+	w := httptest.NewRecorder()
+	r.ServeHTTP(w, req)
+
+	if w.Code != http.StatusBadRequest {
+		t.Fatalf("expected 400, got %d", w.Code)
 	}
 }
