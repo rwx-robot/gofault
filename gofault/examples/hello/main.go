@@ -92,7 +92,7 @@ func main() {
 	hook := NewLifecycleHook("gofault-hello")
 
 	// Create module with controller, provider, middleware, and lifecycle hooks
-	mod := core.NewModule()
+	mod := core.NewModule("hello")
 	mod.RegisterControllers(ctrl)
 	mod.RegisterProviders(svc)
 	mod.RegisterOnBoot(hook)

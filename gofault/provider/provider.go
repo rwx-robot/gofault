@@ -1,6 +1,8 @@
 // Package provider provides utilities for defining injectable providers.
 package provider
 
+import "github.com/gofault/gofault/ioc"
+
 // Provider is the interface for injectable services.
 type Provider interface {
 	Provide() any
@@ -24,12 +26,11 @@ func (v ValueProvider) Provide() any {
 	return v.Value
 }
 
-// AsScope tags a provider function with a scope label.
-// This is a marker type for future scope-based features.
-type ScopeTag string
-
-const (
-	Singleton ScopeTag = "singleton"
-	Request   ScopeTag = "request"
-	Transient ScopeTag = "transient"
-)
+// ScopedProvider is implemented by providers that declare their own lifecycle scope.
+// If a provider implements this interface, its declared scope takes precedence
+// over the registration method used (Register/RegisterScoped/RegisterTransient).
+type ScopedProvider interface {
+	Provider
+	// Scope returns the lifecycle scope for this provider.
+	Scope() ioc.Scope
+}

@@ -2,10 +2,16 @@
 package ioc
 
 import (
+	"context"
 	"fmt"
 	"reflect"
 	"sync"
 )
+
+// contextKey is a custom type to avoid collisions in context.WithValue.
+type contextKey string
+
+const requestCtxKey contextKey = "gofault-request-scope"
 
 // Scope defines the lifecycle scope of a registered service.
 type Scope int
@@ -25,6 +31,11 @@ type container struct {
 	singletons map[reflect.Type]*entry
 	transients map[reflect.Type]*entry
 	request    map[reflect.Type]*entry
+	// requestScope stores per-context instances for request-scoped resolution.
+	// The key is the context value returned by context.WithValue.
+	requestScope map[contextKey]map[reflect.Type]any
+	// counter for generating unique request scope keys.
+	scopeCounter uint64
 }
 
 type entry struct {
@@ -35,10 +46,37 @@ type entry struct {
 // New creates a new container.
 func New() *container {
 	return &container{
-		singletons: make(map[reflect.Type]*entry),
-		transients: make(map[reflect.Type]*entry),
-		request:    make(map[reflect.Type]*entry),
+		singletons:  make(map[reflect.Type]*entry),
+		transients:  make(map[reflect.Type]*entry),
+		request:     make(map[reflect.Type]*entry),
+		requestScope: make(map[contextKey]map[reflect.Type]any),
 	}
+}
+
+// BeginRequest creates a request scope bound to the returned context.
+// All request-scoped resolutions within this context will share the same instances.
+// Call EndRequest when the request completes to clean up.
+func (c *container) BeginRequest(ctx context.Context) context.Context {
+	c.mu.Lock()
+	c.scopeCounter++
+	key := contextKey(fmt.Sprintf("%d", c.scopeCounter))
+	if c.requestScope[key] == nil {
+		c.requestScope[key] = make(map[reflect.Type]any)
+	}
+	c.mu.Unlock()
+	return context.WithValue(ctx, requestCtxKey, key)
+}
+
+// EndRequest releases all request-scoped instances associated with the context.
+// Call this when the request handling is complete.
+func (c *container) EndRequest(ctx context.Context) {
+	key, ok := ctx.Value(requestCtxKey).(contextKey)
+	if !ok {
+		return
+	}
+	c.mu.Lock()
+	delete(c.requestScope, key)
+	c.mu.Unlock()
 }
 
 // Register registers a singleton constructor. The constructor must be a function
@@ -82,7 +120,15 @@ func (c *container) register(ctor any, scope Scope) error {
 
 // Resolve instantiates or returns the cached instance for the given type.
 // target must be a pointer to the desired type (e.g., &MyService{}).
+// This method uses a background context and is suitable for singleton/transient resolution.
 func (c *container) Resolve(target any) (any, error) {
+	return c.ResolveFromCtx(context.Background(), target)
+}
+
+// ResolveFromCtx is like Resolve but resolves request-scoped instances
+// within the given context. Request-scoped instances are shared across
+// all ResolveFromCtx calls within the same request context.
+func (c *container) ResolveFromCtx(ctx context.Context, target any) (any, error) {
 	t := reflect.TypeOf(target)
 	if t == nil {
 		return nil, fmt.Errorf("nil type")
@@ -91,7 +137,7 @@ func (c *container) Resolve(target any) (any, error) {
 		return nil, fmt.Errorf("target must be a pointer, got %T", target)
 	}
 
-	// Check singleton: if registered and instantiated, return cached instance.
+	// Check singleton.
 	c.mu.RLock()
 	e, isSingleton := c.singletons[t]
 	c.mu.RUnlock()
@@ -112,35 +158,65 @@ func (c *container) Resolve(target any) (any, error) {
 	e, ok = c.request[t]
 	c.mu.RUnlock()
 	if ok {
-		return c.callCtor(e.ctor)
+		return c.resolveRequestScoped(ctx, e, t)
 	}
 
 	return nil, fmt.Errorf("no registered service for type %v", t)
 }
 
+// resolveRequestScoped resolves or creates a request-scoped instance.
+func (c *container) resolveRequestScoped(ctx context.Context, e *entry, t reflect.Type) (any, error) {
+	key, ok := ctx.Value(requestCtxKey).(contextKey)
+	if !ok {
+		// No request context: fall back to creating a new instance each time.
+		return c.callCtor(e.ctor)
+	}
+
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	scope := c.requestScope[key]
+	if scope == nil {
+		scope = make(map[reflect.Type]any)
+		c.requestScope[key] = scope
+	}
+
+	if inst, exists := scope[t]; exists {
+		return inst, nil
+	}
+
+	inst, err := c.callCtor(e.ctor)
+	if err != nil {
+		return nil, err
+	}
+	scope[t] = inst
+	return inst, nil
+}
+
 // resolveSingleton returns the singleton instance, creating it lazily if needed.
 func (c *container) resolveSingleton(e *entry, t reflect.Type) (any, error) {
-	// Fast path: already instantiated.
-	c.mu.RLock()
+	// Fast path: already instantiated (no lock needed for read of e.inst).
 	inst := e.inst
-	c.mu.RUnlock()
 	if inst != nil {
 		return inst, nil
 	}
 
 	// Slow path: lazily create the singleton instance.
-	c.mu.Lock()
-	defer c.mu.Unlock()
-	// Double-check after acquiring write lock.
-	if e.inst != nil {
-		return e.inst, nil
-	}
-	inst, err := c.callCtor(e.ctor)
+	// We need a write lock but must avoid deadlock with nested callCtor calls.
+	// Solution: create instance outside the lock, then atomically swap.
+	created, err := c.callCtor(e.ctor)
 	if err != nil {
 		return nil, err
 	}
-	e.inst = inst
-	return inst, nil
+
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	// Double-check: another goroutine may have created it.
+	if e.inst != nil {
+		return e.inst, nil
+	}
+	e.inst = created
+	return created, nil
 }
 
 func (c *container) callCtor(ctor any) (any, error) {
@@ -170,7 +246,25 @@ func (c *container) resolveType(t reflect.Type) (any, error) {
 	e, isSingleton := c.singletons[t]
 	c.mu.RUnlock()
 	if isSingleton {
-		return c.resolveSingleton(e, t)
+		inst := e.inst
+		if inst != nil {
+			return inst, nil
+		}
+		// Not yet instantiated - need to create it but avoid deadlock.
+		// Create outside the lock, then atomically set via the singleton path.
+		created, err := c.callCtor(e.ctor)
+		if err != nil {
+			return nil, err
+		}
+		c.mu.Lock()
+		if e.inst != nil {
+			// Another goroutine beat us to it.
+			c.mu.Unlock()
+			return e.inst, nil
+		}
+		e.inst = created
+		c.mu.Unlock()
+		return created, nil
 	}
 
 	// Check transients.

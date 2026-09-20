@@ -106,6 +106,31 @@ func Conflict(message string) error {
 	return &baseException{statusCode: http.StatusConflict, code: 409, message: message}
 }
 
+// MethodNotAllowed creates a 405 Method Not Allowed exception.
+func MethodNotAllowed(message string) error {
+	return &baseException{statusCode: http.StatusMethodNotAllowed, code: 405, message: message}
+}
+
+// PayloadTooLarge creates a 413 Payload Too Large exception.
+func PayloadTooLarge(message string) error {
+	return &baseException{statusCode: http.StatusRequestEntityTooLarge, code: 413, message: message}
+}
+
+// UnsupportedMediaType creates a 415 Unsupported Media Type exception.
+func UnsupportedMediaType(message string) error {
+	return &baseException{statusCode: http.StatusUnsupportedMediaType, code: 415, message: message}
+}
+
+// TooManyRequests creates a 429 Too Many Requests exception.
+func TooManyRequests(message string) error {
+	return &baseException{statusCode: http.StatusTooManyRequests, code: 429, message: message}
+}
+
+// ServiceUnavailable creates a 503 Service Unavailable exception.
+func ServiceUnavailable(message string) error {
+	return &baseException{statusCode: http.StatusServiceUnavailable, code: 503, message: message}
+}
+
 // IsHTTPException checks if an error is an HTTPException.
 func IsHTTPException(err error) bool {
 	_, ok := err.(HTTPException)

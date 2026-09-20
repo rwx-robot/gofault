@@ -52,20 +52,35 @@ type OnShutdown interface {
 	OnShutdown() error
 }
 
+// OnInit is implemented by types that need to perform initialization before the module starts.
+// Called after all dependencies have been resolved but before the server starts.
+// Dependencies are guaranteed to be initialized before the dependent module's OnInit runs.
+type OnInit interface {
+	OnInit() error
+}
+
 // Module is the basic unit of application organization.
 type Module struct {
+	// Name uniquely identifies the module. Used for dependency resolution.
+	Name string
+	// Depends declares the names of modules that must be initialized before this one.
+	Depends []string
 	Controllers []Controller
 	Providers   []Provider
 	Middleware  []MiddlewareFunc
+	OnInitHooks []OnInit
 	OnBootHooks []OnBoot
 	OnShutdownHooks []OnShutdown
 }
 
-func NewModule() *Module {
+func NewModule(name string) *Module {
 	return &Module{
+		Name:          name,
+		Depends:       []string{},
 		Controllers:    []Controller{},
 		Providers:      []Provider{},
 		Middleware:     []MiddlewareFunc{},
+		OnInitHooks:    []OnInit{},
 		OnBootHooks:    []OnBoot{},
 		OnShutdownHooks: []OnShutdown{},
 	}
@@ -86,6 +101,12 @@ func (m *Module) RegisterProviders(providers ...Provider) *Module {
 // RegisterMiddleware appends middleware to the module.
 func (m *Module) RegisterMiddleware(mw ...MiddlewareFunc) *Module {
 	m.Middleware = append(m.Middleware, mw...)
+	return m
+}
+
+// RegisterOnInit appends OnInit hooks to the module.
+func (m *Module) RegisterOnInit(hooks ...OnInit) *Module {
+	m.OnInitHooks = append(m.OnInitHooks, hooks...)
 	return m
 }
 

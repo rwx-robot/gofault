@@ -2,12 +2,14 @@
 package router
 
 import (
+	"context"
 	"net/http"
 	"regexp"
 	"strings"
 
 	"github.com/gofault/gofault/core"
 	"github.com/gofault/gofault/exception"
+	"github.com/gofault/gofault/ioc"
 )
 
 // Router matches incoming requests against registered routes and executes the middleware chain.
@@ -15,6 +17,7 @@ type Router struct {
 	middleware      []core.MiddlewareFunc
 	routes          []routeEntry
 	exceptionFilter exception.ExceptionFilter
+	container      *ioc.Container
 }
 
 type routeEntry struct {
@@ -38,6 +41,11 @@ type RouterInterface interface {
 // New creates a new Router.
 func New() *Router {
 	return &Router{routes: make([]routeEntry, 0)}
+}
+
+// SetContainer binds an IoC container to the router for request scope management.
+func (r *Router) SetContainer(c *ioc.Container) {
+	r.container = c
 }
 
 // Middleware appends global middleware to the router.
@@ -86,6 +94,14 @@ func buildPattern(path string) (*regexp.Regexp, []string) {
 
 // ServeHTTP dispatches to the matching route or returns 404.
 func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+	// Begin request scope if a container is attached.
+	var reqCtx context.Context
+	if r.container != nil {
+		reqCtx = r.container.BeginRequest(req.Context())
+		req = req.WithContext(reqCtx)
+		defer r.container.EndRequest(reqCtx)
+	}
+
 	for _, route := range r.routes {
 		if route.method != "" && route.method != req.Method {
 			continue

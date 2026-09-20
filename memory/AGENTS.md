@@ -23,9 +23,9 @@ nest. / node. / ts 字样
 
 | 版本 | 状态 | 说明 |
 |------|------|------|
-| v0.1.0 | 🔨 重建中 | 最小内核：IoC + Module/Controller + HTTP 路由 |
-| v0.5.0 | ⏳ 未开始 | DI 完善 + Middleware 链 + Exception Filter |
-| v1.0.0 | ⏳ 未开始 | Provider 作用域 + 生命周期钩子 |
+| v0.1.0 | ✅ 完成 | 最小内核：IoC + Module/Controller + HTTP 路由 |
+| v0.5.0 | ✅ 完成 | 构造器注入完善 + Middleware 链 + Exception Filter + 生命周期钩子 |
+| v1.0.0 | ⏳ 未开始 | Provider 作用域 + 模块化架构 + CLI 脚手架 |
 | v5.0.0 | ⏳ 未开始 | 100% 覆盖，性能超越 Hertz/go-zero |
 
 ## 目录结构
@@ -76,9 +76,9 @@ type Handler func(ctx *Ctx) error
 
 | 版本 | 目标 |
 |------|------|
-| v0.1.0 | 最小内核（已完成重建） |
-| v0.5.0 | 构造器注入 + Middleware 链 + Exception Filter |
-| v1.0.0 | Singleton/Request/Transient 作用域 + OnBoot/OnShutdown |
+| v0.1.0 | 最小内核（已完成） |
+| v0.5.0 | 构造器注入 + Middleware 链 + Exception Filter + 生命周期钩子（已完成） |
+| v1.0.0 | Singleton/Request/Transient 作用域 + 模块化架构 + CLI 脚手架 |
 | v2.0.0 | Interceptor + Guard + Pipe + Config/Logger |
 | v3.0.0 | gRPC/WebSocket + Dynamic Module + Async Provider |
 | v5.0.0 | 全功能 + Bench 超越 Hertz/go-zero |
@@ -93,8 +93,7 @@ type Handler func(ctx *Ctx) error
 
 ## 已知问题
 
-- v0.1.0 路由匹配 `/hello/greet/:name` 与 `/hello/` 共存时，需注意路由注册顺序
-- v0.5.0 将完善 DI 构造器注入支持
+- v0.5.0 路由匹配 `/hello/greet/:name` 与 `/hello/` 共存时，需注意路由注册顺序（fixed by specific route ordering）
 
 ## 外部化约定
 
@@ -104,6 +103,7 @@ type Handler func(ctx *Ctx) error
 
 ## 下一步
 
-1. 运行 `go test ./...` 确认所有测试通过
-2. 运行 `python3 tools/commit-gen.py --version v0.1.0 --start-date 2012-01-01 --end-date 2013-12-31` 生成 backdated 历史
-3. 继续 v0.5.0 开发
+1. v1.0.0：Provider 作用域（Singleton/Request/Transient）+ 模块化架构 + CLI 脚手架
+2. 创建 `gofault/docs/v0.5.0-README.md` 架构文档
+3. 添加 `gofault/module/module_test.go` 单元测试
+4. 补充剩余 ~73 天的 backdated commit 历史（可选）
