@@ -16,10 +16,13 @@ type Ctx struct {
 	Response   http.ResponseWriter
 	Params     map[string]string
 	StatusCode int
+	// Locals holds arbitrary context values, used to pass data between middleware.
+	// For example, WebSocket middleware stores the upgraded connection here.
+	Locals map[string]any
 }
 
 func NewCtx(w http.ResponseWriter, r *http.Request) *Ctx {
-	return &Ctx{Request: r, Response: w, Params: make(map[string]string), StatusCode: http.StatusOK}
+	return &Ctx{Request: r, Response: w, Params: make(map[string]string), StatusCode: http.StatusOK, Locals: make(map[string]any)}
 }
 
 // Route describes a single route entry.
