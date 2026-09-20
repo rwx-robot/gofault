@@ -482,13 +482,47 @@ app.Get("/profile", func(ctx *core.Ctx) error {
 
 ---
 
-## v2.9.0 — File Upload (开发中)
+## v2.9.0 — File Upload
+
+### 新增中间件
+
+#### UploadMiddleware
+文件上传处理，支持本地存储后端。
+
+```go
+storage := middleware.NewLocalStorage("./uploads")
+
+cfg := middleware.DefaultUploadConfig()
+cfg.Storage = storage
+cfg.MaxSize = 5 * 1024 * 1024 // 5MB
+cfg.AllowedExtensions = []string{".jpg", ".png", ".pdf"}
+
+app.Use(middleware.UploadMiddleware(cfg))
+
+app.Post("/upload", func(ctx *core.Ctx) error {
+    files := middleware.GetUploadFiles(ctx)
+    for _, f := range files {
+        fmt.Println(f.FileName, f.Size, f.StoredPath)
+    }
+    return ctx.JSON(200, map[string]any{"files": files})
+})
+```
+
+### 核心类型
+
+| 类型 | 说明 |
+|------|------|
+| `StorageBackend` | 存储后端接口（可扩展 S3/Redis） |
+| `LocalStorage` | 本地文件系统存储实现 |
+| `FileInfo` | 上传文件元信息（文件名、大小、Content-Type、存储路径） |
 
 ### 规划特性
-- Multipart 文件上传处理
-- 文件大小限制
-- 允许/禁止文件类型白名单
-- 存储后端抽象（本地/云存储）
+- [x] Multipart 文件上传处理
+- [x] 文件大小限制
+- [x] 允许/禁止文件类型白名单（按扩展名和 MIME type）
+- [x] 存储后端抽象（`StorageBackend` 接口）
+- [ ] S3 存储后端
+- [ ] Redis 存储后端
 
 ---
 
