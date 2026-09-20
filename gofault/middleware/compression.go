@@ -21,9 +21,9 @@ type CompressionConfig struct {
 // DefaultCompressionConfig returns a default compression configuration.
 func DefaultCompressionConfig() CompressionConfig {
 	return CompressionConfig{
-		Enabled:  true,
-		Level:    gzip.DefaultCompression,
-		MinSize:  1024, // 1KB minimum
+		Enabled: true,
+		Level:   gzip.DefaultCompression,
+		MinSize: 1024, // 1KB minimum
 	}
 }
 
@@ -68,8 +68,8 @@ func CompressionMiddleware(config CompressionConfig) core.MiddlewareFunc {
 		// Capture the response for compression
 		capture := &compressCapture{
 			ResponseWriter: ctx.Response,
-			statusCode:    http.StatusOK,
-			body:          []byte{},
+			statusCode:     http.StatusOK,
+			body:           []byte{},
 		}
 		ctx.Response = capture
 

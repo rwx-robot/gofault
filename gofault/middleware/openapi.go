@@ -61,10 +61,10 @@ func OpenAPIMiddleware(config OpenAPIConfig) core.Handler {
 
 // OpenAPIDocument represents an OpenAPI 3.0 document.
 type OpenAPIDocument struct {
-	OpenAPI    string                 `json:"openapi"`
-	Info       map[string]any         `json:"info"`
-	Paths      map[string]any         `json:"paths"`
-	Components map[string]any         `json:"components,omitempty"`
+	OpenAPI    string         `json:"openapi"`
+	Info       map[string]any `json:"info"`
+	Paths      map[string]any `json:"paths"`
+	Components map[string]any `json:"components,omitempty"`
 }
 
 // AddPath adds a path to the OpenAPI document.

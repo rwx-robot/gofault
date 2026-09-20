@@ -26,7 +26,7 @@ type IPFilterConfig struct {
 func DefaultIPFilterConfig() IPFilterConfig {
 	return IPFilterConfig{
 		Enabled: true,
-		Mode:   "block",
+		Mode:    "block",
 	}
 }
 

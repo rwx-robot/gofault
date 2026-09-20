@@ -172,9 +172,9 @@ func TestWebSocketHijackMiddleware_StoresConnection(t *testing.T) {
 type mockWSHandler struct {
 	connectCount    int32
 	disconnectCount int32
-	messageCount   int32
-	mu             sync.Mutex
-	messages       []string
+	messageCount    int32
+	mu              sync.Mutex
+	messages        []string
 }
 
 func (m *mockWSHandler) HandleConnect(ctx *core.Ctx, conn *websocket.Conn) error {

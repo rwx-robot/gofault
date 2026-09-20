@@ -30,13 +30,13 @@ type WebSocketConfig struct {
 // DefaultWebSocketConfig returns a default WebSocket configuration.
 func DefaultWebSocketConfig() WebSocketConfig {
 	return WebSocketConfig{
-		Enabled:        true,
-		ReadBufferSize: 1024,
+		Enabled:         true,
+		ReadBufferSize:  1024,
 		WriteBufferSize: 1024,
-		ReadTimeout:    60 * time.Second,
-		WriteTimeout:   60 * time.Second,
-		PingInterval:   30 * time.Second,
-		CheckOrigin:    nil, // default: same origin check
+		ReadTimeout:     60 * time.Second,
+		WriteTimeout:    60 * time.Second,
+		PingInterval:    30 * time.Second,
+		CheckOrigin:     nil, // default: same origin check
 	}
 }
 
@@ -172,7 +172,7 @@ func WebSocketHijackMiddleware(config WebSocketConfig) core.MiddlewareFunc {
 
 	upgrader := websocket.Upgrader{
 		ReadBufferSize:  config.ReadBufferSize,
-		WriteBufferSize:  config.WriteBufferSize,
+		WriteBufferSize: config.WriteBufferSize,
 		CheckOrigin:     config.CheckOrigin,
 	}
 
