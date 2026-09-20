@@ -526,13 +526,50 @@ app.Post("/upload", func(ctx *core.Ctx) error {
 
 ---
 
-## v3.0.0 — 数据库集成 (规划中)
+## v3.0.0 — 数据库集成
+
+### 新增包
+
+#### `gorm/` — GORM 数据库集成
+
+```go
+cfg := gorm.DefaultConfig()
+cfg.Dialect = gorm.DialectSQLite
+cfg.DSN = ":memory:"
+cfg.Silent = true
+
+db, err := gorm.NewDatabase("main", cfg)
+
+// 自动迁移
+db.DB.AutoMigrate(&User{})
+
+// 事务
+gorm.Transaction(db.DB, func(tx *gorm.DB) error {
+    return tx.Create(&User{Name: "alice"}).Error
+})
+```
+
+### 核心类型
+
+| 类型 | 说明 |
+|------|------|
+| `Database` | 数据库模块（`core.Module`），封装 `*gorm.DB` |
+| `Config` | 数据库配置（连接池、超时、日志级别） |
+| `Transaction()` | 事务辅助函数，自动 commit/rollback |
+
+### 支持驱动
+
+| Dialect | DSN 示例 |
+|---------|---------|
+| `mysql` | `user:password@tcp(localhost:3306)/dbname` |
+| `postgres` | `host=localhost user=gorm password=gorm dbname=gorm port=5432` |
+| `sqlite` | `./data.db` 或 `:memory:` |
 
 ### 规划特性
-- GORM 适配层
-- 自动迁移
-- 事务支持
-- 仓储模式 (Repository Pattern)
+- [x] GORM 适配层
+- [x] 连接池配置（MaxOpenConns, MaxIdleConns, ConnMaxLifetime）
+- [x] 事务支持（自动 rollback on panic/error）
+- [ ] 仓储模式 (Repository Pattern)
 
 ---
 
