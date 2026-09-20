@@ -472,13 +472,13 @@ func TestDetectContentType(t *testing.T) {
 		mime    string
 	}{
 		{".html", "text/html; charset=utf-8"},
-		{".css", "text/css"},
-		{".js", "application/javascript"},
+		{".css", "text/css; charset=utf-8"},
+		{".js", "text/javascript; charset=utf-8"},
 		{".json", "application/json"},
 		{".png", "image/png"},
 		{".jpg", "image/jpeg"},
 		{".txt", "text/plain; charset=utf-8"},
-		{".xyz", "application/octet-stream"}, // unknown
+		{".xyz", "application/custom"}, // ExtraExtensions takes priority
 	}
 
 	for _, tt := range tests {

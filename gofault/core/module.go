@@ -25,6 +25,27 @@ func NewCtx(w http.ResponseWriter, r *http.Request) *Ctx {
 	return &Ctx{Request: r, Response: w, Params: make(map[string]string), StatusCode: http.StatusOK, Locals: make(map[string]any)}
 }
 
+// GetVersion returns the API version extracted by versioning middleware, or 0 if not set.
+func (c *Ctx) GetVersion() int {
+	if v, ok := c.Locals["version"].(int); ok {
+		return v
+	}
+	return 0
+}
+
+// GetVersionStatus returns the API version status, or VersionStatusActive if not set.
+func (c *Ctx) GetVersionStatus() int {
+	if v, ok := c.Locals["version_status"].(int); ok {
+		return v
+	}
+	return 0
+}
+
+// RespHeader returns the response headers for middleware convenience.
+func (c *Ctx) RespHeader() http.Header {
+	return c.Response.Header()
+}
+
 // Route describes a single route entry.
 type Route struct {
 	Method  string
