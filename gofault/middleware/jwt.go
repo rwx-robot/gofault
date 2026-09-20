@@ -16,7 +16,7 @@ import (
 // JWTConfig holds JWT authentication configuration.
 type JWTConfig struct {
 	Secret    []byte
-	Algorithm  string // HS256 only for simplicity
+	Algorithm string // HS256 only for simplicity
 	TokenName string
 }
 

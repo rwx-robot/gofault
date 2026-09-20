@@ -17,10 +17,18 @@ type mockLogger struct {
 	*bytes.Buffer
 }
 
-func (m *mockLogger) Debug(msg string, args ...any) { m.Write([]byte(fmt.Sprintf("DEBUG: "+msg+"\n", args...))) }
-func (m *mockLogger) Info(msg string, args ...any)  { m.Write([]byte(fmt.Sprintf("INFO: "+msg+"\n", args...))) }
-func (m *mockLogger) Warn(msg string, args ...any)  { m.Write([]byte(fmt.Sprintf("WARN: "+msg+"\n", args...))) }
-func (m *mockLogger) Error(msg string, args ...any) { m.Write([]byte(fmt.Sprintf("ERROR: "+msg+"\n", args...))) }
+func (m *mockLogger) Debug(msg string, args ...any) {
+	m.Write([]byte(fmt.Sprintf("DEBUG: "+msg+"\n", args...)))
+}
+func (m *mockLogger) Info(msg string, args ...any) {
+	m.Write([]byte(fmt.Sprintf("INFO: "+msg+"\n", args...)))
+}
+func (m *mockLogger) Warn(msg string, args ...any) {
+	m.Write([]byte(fmt.Sprintf("WARN: "+msg+"\n", args...)))
+}
+func (m *mockLogger) Error(msg string, args ...any) {
+	m.Write([]byte(fmt.Sprintf("ERROR: "+msg+"\n", args...)))
+}
 
 func TestNew(t *testing.T) {
 	l := New("[TEST] ", LevelInfo)

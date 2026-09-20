@@ -64,24 +64,24 @@ type Module struct {
 	// Name uniquely identifies the module. Used for dependency resolution.
 	Name string
 	// Depends declares the names of modules that must be initialized before this one.
-	Depends []string
-	Controllers []Controller
-	Providers   []Provider
-	Middleware  []MiddlewareFunc
-	OnInitHooks []OnInit
-	OnBootHooks []OnBoot
+	Depends         []string
+	Controllers     []Controller
+	Providers       []Provider
+	Middleware      []MiddlewareFunc
+	OnInitHooks     []OnInit
+	OnBootHooks     []OnBoot
 	OnShutdownHooks []OnShutdown
 }
 
 func NewModule(name string) *Module {
 	return &Module{
-		Name:          name,
-		Depends:       []string{},
-		Controllers:    []Controller{},
-		Providers:      []Provider{},
-		Middleware:     []MiddlewareFunc{},
-		OnInitHooks:    []OnInit{},
-		OnBootHooks:    []OnBoot{},
+		Name:            name,
+		Depends:         []string{},
+		Controllers:     []Controller{},
+		Providers:       []Provider{},
+		Middleware:      []MiddlewareFunc{},
+		OnInitHooks:     []OnInit{},
+		OnBootHooks:     []OnBoot{},
 		OnShutdownHooks: []OnShutdown{},
 	}
 }

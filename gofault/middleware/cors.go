@@ -21,12 +21,12 @@ type CORSConfig struct {
 // DefaultCORSConfig returns the default CORS configuration.
 func DefaultCORSConfig() CORSConfig {
 	return CORSConfig{
-		AllowOrigins: []string{"*"},
-		AllowMethods: []string{"GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"},
-		AllowHeaders: []string{"Origin", "Content-Type", "Accept", "Authorization"},
-		ExposeHeaders: []string{},
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Accept", "Authorization"},
+		ExposeHeaders:    []string{},
 		AllowCredentials: false,
-		MaxAge: 86400,
+		MaxAge:           86400,
 	}
 }
 

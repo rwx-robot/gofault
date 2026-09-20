@@ -91,10 +91,10 @@ func createProject(name string) error {
 	}
 
 	files := map[string]string{
-		"main.go":                   mainContent,
-		"go.mod":                    goModContent,
-		"config.yaml":               configContent,
-		"controllers/hello.go":      ctrlContent,
+		"main.go":              mainContent,
+		"go.mod":               goModContent,
+		"config.yaml":          configContent,
+		"controllers/hello.go": ctrlContent,
 	}
 
 	for path, content := range files {

@@ -46,9 +46,9 @@ type entry struct {
 // New creates a new container.
 func New() *container {
 	return &container{
-		singletons:  make(map[reflect.Type]*entry),
-		transients:  make(map[reflect.Type]*entry),
-		request:     make(map[reflect.Type]*entry),
+		singletons:   make(map[reflect.Type]*entry),
+		transients:   make(map[reflect.Type]*entry),
+		request:      make(map[reflect.Type]*entry),
 		requestScope: make(map[contextKey]map[reflect.Type]any),
 	}
 }

@@ -25,7 +25,7 @@ type App struct {
 // New creates a new application instance.
 func New() *App {
 	return &App{
-		container:  ioc.New(),
+		container: ioc.New(),
 		rtr:       router.New(),
 		modules:   make([]*core.Module, 0),
 		moduleMap: make(map[string]*core.Module),

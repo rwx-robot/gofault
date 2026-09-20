@@ -18,8 +18,8 @@ const (
 
 // HealthCheckResponse represents the health check response.
 type HealthCheckResponse struct {
-	Status    HealthStatus            `json:"status"`
-	Timestamp string                  `json:"timestamp"`
+	Status    HealthStatus           `json:"status"`
+	Timestamp string                 `json:"timestamp"`
 	Checks    map[string]HealthCheck `json:"checks,omitempty"`
 }
 

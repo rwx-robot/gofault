@@ -10,8 +10,8 @@ import (
 func TestRateLimiter_Allow(t *testing.T) {
 	cfg := RateLimiterConfig{
 		RequestsPerSecond: 10,
-		BurstSize:        5,
-		KeyFunc:          func(ctx *core.Ctx) string { return "test-key" },
+		BurstSize:         5,
+		KeyFunc:           func(ctx *core.Ctx) string { return "test-key" },
 	}
 	rl := NewRateLimiter(cfg)
 
@@ -31,8 +31,8 @@ func TestRateLimiter_Allow(t *testing.T) {
 func TestRateLimiter_TokenRefill(t *testing.T) {
 	cfg := RateLimiterConfig{
 		RequestsPerSecond: 100,
-		BurstSize:        2,
-		KeyFunc:          func(ctx *core.Ctx) string { return "test-key" },
+		BurstSize:         2,
+		KeyFunc:           func(ctx *core.Ctx) string { return "test-key" },
 	}
 	rl := NewRateLimiter(cfg)
 
@@ -49,8 +49,8 @@ func TestRateLimiter_TokenRefill(t *testing.T) {
 func TestRateLimiter_DifferentKeys(t *testing.T) {
 	cfg := RateLimiterConfig{
 		RequestsPerSecond: 10,
-		BurstSize:        2,
-		KeyFunc:          func(ctx *core.Ctx) string { return ctx.Request.RemoteAddr },
+		BurstSize:         2,
+		KeyFunc:           func(ctx *core.Ctx) string { return ctx.Request.RemoteAddr },
 	}
 	rl := NewRateLimiter(cfg)
 
@@ -67,8 +67,8 @@ func TestRateLimiter_DifferentKeys(t *testing.T) {
 func TestRateLimiter_Middleware(t *testing.T) {
 	cfg := RateLimiterConfig{
 		RequestsPerSecond: 10,
-		BurstSize:        2,
-		KeyFunc:          func(ctx *core.Ctx) string { return "test-ip" },
+		BurstSize:         2,
+		KeyFunc:           func(ctx *core.Ctx) string { return "test-ip" },
 	}
 	rl := NewRateLimiter(cfg)
 	middleware := rl.Middleware()

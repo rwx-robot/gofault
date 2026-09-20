@@ -10,11 +10,11 @@ import (
 
 func TestHTTPException(t *testing.T) {
 	tests := []struct {
-		name       string
-		err        error
-		wantCode   int
-		wantHTTP   int
-		wantMsg    string
+		name     string
+		err      error
+		wantCode int
+		wantHTTP int
+		wantMsg  string
 	}{
 		{"BadRequest", BadRequest("invalid input"), 400, http.StatusBadRequest, "invalid input"},
 		{"Unauthorized", Unauthorized("no token"), 401, http.StatusUnauthorized, "no token"},
